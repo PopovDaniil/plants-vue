@@ -1,0 +1,26 @@
+<template>
+    <footer class="w3-section w3-col w3-theme-d2 w3-display-container">
+        <nav class="w3-col l2 w3-bar-block w3-margin">
+            <a class="w3-block" href="/index">Главная</a>
+            <a class="w3-block" href="/catalog">Каталог</a>
+            <a class="w3-block w3-margin-left" href="/catalog/scientific">Научная классификация</a>
+            <a class="w3-block w3-margin-left" href="/catalog/lifeform">По жизненной форме</a>
+            <a class="w3-block w3-margin-left" href="">По времени цветения</a>
+            <a class="w3-block" href="/calendar">Календарь цветения</a>
+            <a class="w3-block" href="/news">Архив новостей</a>
+        </nav>
+        <div class="w3-col l9 w3-center w3-section">
+            <img src="../assets/images/foto.jpg" class="" alt="">
+            <p class="w3-text-light-gray">
+                Сайт поддерживается и развивается Ростовским ботаническим садом • 2020 г.
+            </p>
+        </div>
+        <img src="../assets/images/logo.png" class="logo w3-display-right">
+</footer>
+</template>
+
+<script>
+export default {
+    
+}
+</script>
