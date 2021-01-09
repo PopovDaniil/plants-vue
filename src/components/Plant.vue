@@ -1,6 +1,6 @@
 <template>
   <div class="w3-padding w3-half" v-if="this.isMain">
-    <section class="w3-card-4 w3-container w3-theme w3-margin-top">
+    <section class="w3-card-4 w3-container w3-theme w3-margin-top height-250">
       <img
         :src="this.image"
         class="w3-col small w3-left-align w3-margin"
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style>
-  section.w3-card-4 {
+  section.height-250 {
     height: 250px;
   }
 </style>

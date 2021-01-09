@@ -2,18 +2,18 @@
   <menu class="w3-theme-d2 w3-top">
     <div class="w3-center">
       <template v-for="(page, index) in pages" :key="index">
-        <a :href="page.url" class="w3-button w3-hover-theme" v-if="!hasChild(page)">{{ page.title }}</a>
+        <router-link :to="page.url" class="w3-button w3-hover-theme" v-if="!hasChild(page)">{{ page.title }}</router-link>
         <div class="w3-dropdown-hover" v-else>
-          <a :href="page.url" class="w3-button w3-hover-theme">{{page.title}}</a>
+          <router-link :to="page.url" class="w3-button w3-hover-theme">{{page.title}}</router-link>
           <div
             class="w3-dropdown-content w3-bar-block w3-card-4 fixed w3-theme-d2"
           >
-            <a
+            <router-link
               v-for="(child,index) in page.content"
-              :href="`${page.url}/${child.url}`"
+              :to="`${page.url}/${child.url}`"
               class="w3-bar-item w3-button w3-hover-theme"
               :key="index"
-              >{{child.title}}</a
+              >{{child.title}}</router-link
             >
           </div>
         </div>
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     hasChild(page) {
-      return typeof page == "object"
+      return typeof page.content == "object"
     }
   }
 };

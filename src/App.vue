@@ -2,7 +2,7 @@
   <site-header />
   <top-menu :pages="pages" @toggle-aside="this.toggleAside" />
   <main class="w3-container w3-col l9 m12">
-    <random-cards :catalog="this.catalog" />
+    <router-view :catalog="this.catalog" :classes="getPage('catalog').content"/>
   </main>
   <side-panel :show="this.showAside" />
   <site-footer />
@@ -11,18 +11,17 @@
 <script>
 import "./assets/styles/w3-theme-green.css";
 import "./assets/styles/w3.css";
-import RandomCards from "./components/RandomCards.vue";
 import SidePanel from "./components/SidePanel.vue";
 import SiteFooter from "./components/SiteFooter.vue";
 import SiteHeader from "./components/SiteHeader.vue";
 import TopMenu from "./components/TopMenu.vue";
+
 
 export default {
   name: "App",
   components: {
     SiteHeader,
     TopMenu,
-    RandomCards,
     SidePanel,
     SiteFooter,
   },
@@ -40,10 +39,46 @@ export default {
             {
               title: "Научная классификация",
               url: "scientific",
+              content: [
+                {
+                  title: "Водоросли",
+                  url: "chlorophyta"
+                },
+                {
+                  title: "Мхи",
+                  url: "bryophyta"
+                },
+                {
+                  title: "Хвойные",
+                  url: "pinophyta"
+                },
+                {
+                  title: "Цветковые",
+                  url: "magnoliophyta"
+                },
+              ]
             },
             {
               title: "По жизненной форме",
               url: "lifeform",
+              content: [
+                {
+                  title: "Травы",
+                  url: "herbaceous"
+                },
+                {
+                  title: "Кустарники",
+                  url: "shrub"
+                },
+                {
+                  title: "Деревья",
+                  url: "tree"
+                },
+                {
+                  title: "Лианы",
+                  url: "liana"
+                },
+              ]
             },
           ],
         },
