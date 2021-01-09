@@ -1,28 +1,23 @@
 <template>
   <menu class="w3-theme-d2 w3-top">
     <div class="w3-center">
-      <a href="/" class="w3-button w3-hover-theme">Главная</a>
-      <div class="w3-dropdown-hover">
-        <a href="/catalog" class="w3-button w3-hover-theme">Каталог</a>
-        <div
-          class="w3-dropdown-content w3-bar-block w3-card-4 fixed w3-theme-d2"
-        >
-          <a
-            href="/catalog/scientific"
-            class="w3-bar-item w3-button w3-hover-theme"
-            >Научная классификация</a
+      <template v-for="(page, index) in pages" :key="index">
+        <a :href="page.url" class="w3-button w3-hover-theme" v-if="!hasChild(page)">{{ page.title }}</a>
+        <div class="w3-dropdown-hover" v-else>
+          <a :href="page.url" class="w3-button w3-hover-theme">{{page.title}}</a>
+          <div
+            class="w3-dropdown-content w3-bar-block w3-card-4 fixed w3-theme-d2"
           >
-          <a
-            href="/catalog/lifeform"
-            class="w3-bar-item w3-button w3-hover-theme"
-            >По жизненной форме</a
-          >
-          <a href="" class="w3-bar-item w3-button w3-hover-theme"
-            >По времени цветения</a
-          >
+            <a
+              v-for="(child,index) in page.content"
+              :href="`${page.url}/${child.url}`"
+              class="w3-bar-item w3-button w3-hover-theme"
+              :key="index"
+              >{{child.title}}</a
+            >
+          </div>
         </div>
-      </div>
-      <a href="/about" class="w3-button w3-hover-theme">О нас</a>
+      </template>
       <div class="w3-dropdown-click">
         <a
           class="material-icons w3-button w3-hover-theme"
@@ -48,7 +43,9 @@
         >
           botsad-don@gmail.com
         </div>
-        <a class="w3-button w3-hover-theme w3-hide-large" @click="this.$emit('toggle-aside')"
+        <a
+          class="w3-button w3-hover-theme w3-hide-large"
+          @click="this.$emit('toggle-aside')"
           >Aside</a
         >
       </div>
@@ -58,12 +55,20 @@
 
 <script>
 export default {
-  emits: ["toggle-aside"]
+  emits: ["toggle-aside"],
+  props: {
+    pages: Object,
+  },
+  methods: {
+    hasChild(page) {
+      return typeof page == "object"
+    }
+  }
 };
 </script>
 
 <style>
 menu {
-    margin: 0px;
+  margin: 0px;
 }
 </style>
