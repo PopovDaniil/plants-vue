@@ -10,7 +10,7 @@
           >
             <router-link
               v-for="(child,index) in page.content"
-              :to="`${page.url}/${child.url}`"
+              :to="`/${page.url}/${child.url}`"
               class="w3-bar-item w3-button w3-hover-theme"
               :key="index"
               >{{child.title}}</router-link

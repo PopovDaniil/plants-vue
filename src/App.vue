@@ -100,7 +100,7 @@ export default {
   },
   methods: {
     toggleAside() {
-      this.mainPage.showAside = !this.mainPage.showAside;
+      this.showAside = !this.showAside;
     },
     getPage(url) {
       return this.pages.find((page) => page.url == url);

@@ -6,7 +6,8 @@ import Catalog from "./Catalog.vue";
 
 const routes = [
     { path: '/', component: Home, name: 'home' },
-    { path: '/catalog', component: Catalog}
+    { path: '/catalog', component: Catalog, props: {level: 1}},
+    { path: '/catalog/:latin', component: Catalog, props: {level: 2}},
 ]
 
 const router = createRouter({
