@@ -1,5 +1,5 @@
 <template>
-  <random-cards :catalog="this.catalog" />
+  <random-cards />
 </template>
 
 <script>

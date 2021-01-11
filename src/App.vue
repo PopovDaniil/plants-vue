@@ -2,7 +2,8 @@
   <site-header />
   <top-menu :pages="pages" @toggle-aside="this.toggleAside" />
   <main class="w3-container w3-col l9 m12">
-    <router-view :catalog="this.catalog" :classes="getPage('catalog').content"/>
+    <router-view
+    />
   </main>
   <side-panel :show="this.showAside" />
   <site-footer />
@@ -42,21 +43,21 @@ export default {
               content: [
                 {
                   title: "Водоросли",
-                  url: "chlorophyta"
+                  url: "chlorophyta",
                 },
                 {
                   title: "Мхи",
-                  url: "bryophyta"
+                  url: "bryophyta",
                 },
                 {
                   title: "Хвойные",
-                  url: "pinophyta"
+                  url: "pinophyta",
                 },
                 {
                   title: "Цветковые",
-                  url: "magnoliophyta"
+                  url: "magnoliophyta",
                 },
-              ]
+              ],
             },
             {
               title: "По жизненной форме",
@@ -64,21 +65,21 @@ export default {
               content: [
                 {
                   title: "Травы",
-                  url: "herbaceous"
+                  url: "herbaceous",
                 },
                 {
                   title: "Кустарники",
-                  url: "shrub"
+                  url: "shrub",
                 },
                 {
                   title: "Деревья",
-                  url: "tree"
+                  url: "tree",
                 },
                 {
                   title: "Лианы",
-                  url: "liana"
+                  url: "liana",
                 },
-              ]
+              ],
             },
           ],
         },
